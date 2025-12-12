@@ -1,1 +1,1 @@
-# cyrpto-n-security-notes
+# crypto-n-security-notes
