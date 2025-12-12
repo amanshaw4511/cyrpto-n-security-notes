@@ -62,4 +62,30 @@ Authorization: Bearer ya29.a0Af...
 }
 ```
 
+## Token Expiry and Referesh Token
+- The access token usually expiry after 10-20 mins and the user has to follow the same process.
+- To get the access for longer period the client can add request `offline` access type during request
+```
+https://accounts.google.com/o/oauth2/v2/auth
+  ?client_id=YOUR_CLIENT_ID
+  &redirect_uri=https://txteditor.com/callback
+  &response_type=code
+  &scope=https://www.googleapis.com/auth/drive.file
+  &access_type=offline
+```
+- Now when the client will exchange the auth token, it will receive two tokens
+  - access token (short lived, 10-20 mins)
+  - referesh token (long lived, 1-2 days)
+- If the client see that the access token is about to expire, it can renew the token using refersh token
+```
+POST https://oauth2.googleapis.com/token
+{
+  "client_id": "YOUR_CLIENT_ID",
+  "client_secret": "YOUR_SECRET",
+  "refresh_token": "1//04x...",
+  "grant_type": "refresh_token"
+}
+```
+
+
 
