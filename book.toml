@@ -2,3 +2,18 @@
 title = "Crypt & Security"
 authors = ["Aman Shaw"]
 language = "en"
+
+
+[output.html]
+# Required: Your repository URL used in the link.
+git-repository-url = "https://github.com/amanshaw4511/crypto-n-security-notes"
+
+[preprocessor.open-on-gh]
+command = "mdbook-open-on-gh"
+renderer = ["html"]
+# Your git branch. Defaults to `main`
+git-branch = "main"
+
+# The text to use in the footer.
+# The link text is marked by `[]`
+open-on-text = "[Edit this page on GitHub.]"
